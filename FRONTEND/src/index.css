@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paper & ink */
+  --color-paper: #F1EEE2;
+  --color-paper-card: #F8F6EC;
+  --color-ink: #1B2420;
+  --color-ink-soft: #4B5650;
+
+  /* Ledger rule lines */
+  --color-line: #D2C9AE;
+  --color-line-soft: #E2DBC5;
+
+  /* Accents */
+  --color-emerald: #1F6F54;
+  --color-emerald-dark: #14503C;
+  --color-rust: #B5533C;
+  --color-gold: #B8935F;
+
+  /* Type */
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Ledger paper texture: faint horizontal rule lines */
+.ledger-bg {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 43px,
+    var(--color-line-soft) 43px,
+    var(--color-line-soft) 44px
+  );
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Signature element: a perforated "torn ledger page" edge on cards */
+.perforated-top {
+  position: relative;
+}
+.perforated-top::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image: radial-gradient(circle, var(--color-paper) 3.5px, transparent 4px);
+  background-size: 16px 10px;
+  background-repeat: repeat-x;
+  background-position: 4px -5px;
+  pointer-events: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-emerald);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
