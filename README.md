@@ -333,15 +333,10 @@ npm run dev
 Create a `.env` file inside the backend directory.
 
 ```env
-SECRET_KEY=
-
 JWT_SECRET_KEY=
-
 GROQ_API_KEY=
-
-EMAIL_USER=
-
-EMAIL_PASSWORD=
+GMAIL_ADDRESS=
+GMAIL_APP_PASSWORD=
 ```
 
 ---
